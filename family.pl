@@ -63,9 +63,24 @@ child(imaginary_secondcousinonce, imaginary_secondcousin).
 
 
 /* rules */
-sibling(A,B):-child(A,P),child(B,P),A\=B.
+sibling(A,B):-
+    child(A,P),
+    child(B,P),
+    A\=B.
 parent(P,C):-child(C,P).
-grandparent(G,C):-parent(X,C),parent(G,X).
-greatgrandparent(GG,C):-parent(X,C),parent(X2,X),parent(GG,X2).
-firstcousin(A,B):-parent(P1,A),parent(P2,B),sibling(P1,P2).
-firstcousinonceremoved(A,B):-child(A,C1),firstcousin(C1,B).
+grandparent(G,C):-
+    parent(X,C),
+    parent(G,X).
+greatgrandparent(GG,C):-
+    parent(X,C),
+    parent(X2,X),
+    parent(GG,X2).
+firstcousin(A,B):-
+    parent(P1,A),
+    parent(P2,B),
+    sibling(P1,P2).
+firstcousinonceremoved(A,B):-
+    child(A,C1),
+    firstcousin(C1,B).
+
+
