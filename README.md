@@ -4,6 +4,9 @@ My approach to sorting the kth-children list by age is more or less an adapted v
 
 # Files
 `family.pl` contains the genealogy database consisting of child(C,P) and age(P,X) definitions. `rules.pl` contains the prlog rules I used. `script.pl` is a sanity-check script used to verify predicates by listing relationships that should return True and queries that return all possible solutions.
+
+# Sanity Check
+`script.pl` can be consulted after `consult(family).` and `consult(rules).` to run a quick sanity check, returning true for answers being found. Individual commands from this file are run in script mode fo the results and sanity check per predicate, ie in the swipl interpreter type `consult(family).`, then `consult(rules).`, and write queries such as `nthcousin(kirk,X,2).` for finding all 2nd-cousins of 'kirk'.
     
 # Learning Outcome
 
