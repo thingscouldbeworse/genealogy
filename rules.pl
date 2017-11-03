@@ -37,10 +37,37 @@ nthcousinkremoved(X,Y,N,K):-
     I is K-1,
     nthcousinkremoved(X,P_maybe,N,I).
 
-kthchild(X,Y,0):-
+kthlevel_child(X,Y,0):-
     child(Y,X).
 
-kthchild(X,Y,K):-
+kth_levelchild(X,Y,K):-
     child(Z,X),
     I is K-1,
     kthchild(Z,Y,I).
+
+/* list of children of P */
+children(P,Cn):-
+    findall(X,child(X,P),Cn). 
+
+sortedchildren(P,ByAge):-
+    children(P,Cn),
+    map_list_to_pairs(age,Cn,Pairs),
+    keysort(Pairs,SortedBackwards),
+    reverse(SortedBackwards,Sorted),
+    pairs_values(Sorted, ByAge).
+
+older(X,Y):-
+    age(X,A1),
+    age(Y,A2),
+    A1>A2.
+
+firstchild(P,First):-
+    children(P,[First|_]).
+
+secondchild(P,Second):-
+    children(P,[_,Second|_]).
+
+kthchild(P,K,KthChild):-
+    sortedchildren(P,ByAge),
+    %N is K-1,
+    nth0(N,ByAge,KthChild).

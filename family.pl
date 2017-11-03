@@ -1,11 +1,7 @@
-/* I consulted with Grant as to why my program did not */
-/* return all possible siblings. He showed me I was hitting */
-/* enter instead of space, ending the query instead of continuing */
-
 /* my nuclear family */
-age(kirk, 22).
 age(andrew, 19).
 age(peter, 60).
+age(kirk, 22).
 child(kirk, peter).
 child(andrew, peter).
 
@@ -42,11 +38,11 @@ child(wesley, johanna).
 child(callie, johanna).
 
 /* peter2 family */
-age(susan, 12).
 age(josie, 11).
+age(susan, 12).
 age(kelsey, 9).
-child(susan, peter2).
 child(josie, peter2).
+child(susan, peter2).
 child(kelsey, peter2).
 
 /* mary family */
