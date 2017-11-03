@@ -39,7 +39,7 @@ child(michael, liz).
 age(wesley, 13).
 age(callie, 10).
 child(wesley, johanna).
-child(cally, johanna).
+child(callie, johanna).
 
 /* peter2 family */
 age(susan, 12).

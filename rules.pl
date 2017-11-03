@@ -37,11 +37,10 @@ nthcousinkremoved(X,Y,N,K):-
     I is K-1,
     nthcousinkremoved(X,P_maybe,N,I).
 
-kthchild(C,P,0):-
-    child(C,P).
+kthchild(X,Y,0):-
+    child(Y,X).
 
-kthchild(C,P,K):-
-    child(C,P),
+kthchild(X,Y,K):-
+    child(Z,X),
     I is K-1,
-    kthchild(Y,C,I).
-
+    kthchild(Z,Y,I).
