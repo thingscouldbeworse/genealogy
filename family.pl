@@ -6,13 +6,11 @@
 age(kirk, 22).
 age(andrew, 19).
 age(peter, 60).
-age(gail, 55).
 child(kirk, peter).
 child(andrew, peter).
 
 /* peter's nuclear family */
 age(margaret, 100).
-age(john, 105).
 age(jim, 75).
 age(jane, 63).
 age(mary, 67).
@@ -24,14 +22,12 @@ child(mary, margaret).
 child(liz, margaret).
 
 /* jane's family */
-age(keith, 63).
 age(david, 23).
 age(sarah, 25).
 child(david, jane).
 child(sarah, jane).
 
 /* liz's family */
-age(doug, 71).
 age(peter2, 40).
 age(johanna, 42).
 age(michael, 43).
@@ -40,14 +36,24 @@ child(peter2, liz).
 child(michael, liz).
 
 /* johanna family */
-age(mike, 41).
 age(wesley, 13).
 age(callie, 10).
 child(wesley, johanna).
 child(cally, johanna).
 
+/* peter2 family */
+age(susan, 12).
+age(josie, 11).
+age(kelsey, 9).
+child(susan, peter2).
+child(josie, peter2).
+child(kelsey, peter2).
+
+/* mary family */
+age(david2, 39).
+child(david2, mary).
+
 /* great-grandchilds */
-age(frank, 130).
 age(agnes, 129).
 age(imaginary_grandaunt, 101).
 child(margaret, frank).
@@ -60,45 +66,5 @@ age(imaginary_secondcousinonce, 15).
 child(imaginary_secondaunt, imaginary_grandaunt).
 child(imaginary_secondcousin, imaginary_secondaunt).
 child(imaginary_secondcousinonce, imaginary_secondcousin).
-
-
-/* rules */
-sibling(A,B):-
-    child(A,P),
-    child(B,P),
-    A\=B.
-
-parent(P,C):-child(C,P).
-
-grandparent(G,C):-
-    parent(X,C),
-    parent(G,X).
-
-greatgrandparent(GG,C):-
-    parent(X,C),
-    parent(X2,X),
-    parent(GG,X2).
-
-/* first cousins */
-nthcousin(A,B,1):-
-    parent(P1,A),
-    parent(P2,B),
-    sibling(P1,P2).
-
-/* recursively define nth-cousins */
-/*  */
-nthcousin(A,B,N):-
-    parent(P1,A),
-    parent(P2,B),
-    I is N-1,
-    nthcousin(P1,P2,I).
-
-nthcousinkremoved(A,B,N,0):-
-    nthcousin(A,B,N).
-
-nthcousinkremoved(X,Y,N,K):-
-    parent(P_maybe, Y),
-    I is K-1,
-    nthcousinkremoved(X,P_maybe,N,I).
 
 
