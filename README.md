@@ -3,21 +3,7 @@ I consulted with Grant Sparks as to why my program did not  return all possible 
 My approach to sorting the kth-children list by age is more or less an adapted version of the example given in the swi-prolog documentation for the `keysort` function, found here: http://www.swi-prolog.org/pldoc/man?predicate=keysort/2
 
 # Files
-`family.pl` contains the genealogy database consisting of child(C,P) and age(P,X) definitions. `rules.pl` contains the prlog rules I used. `script.pl` is a sanity-check script used to verify predicates by listing relationships that should return TRUE.
-
-# Completed Tasks
-I completed the tasks in the swipl interpreter, using the following commands;
-
-* Parent:   `parent(peter, X)` /* list all who 'peter' is parent to, [kirk, andrew] */ 
-            `parent(peter, kirk)` /* returns True as 'peter' is parent to 'kirk' */
-
-* Child:    `child(peter, X)` /* list all 'peter' is a child to [margaret] */
-            `child(peter, margaret)` /* returns True as 'peter' is a child of 'margaret' */
-
-* Sibling   `sibling(peter, X)` /* list all siblings of 'peter' [jim, liz, mary, jane] */
-            `sibling(peter, jane)` /* returns True as 'peter' shares a parent with 'jane' */
-
-* nth Cousin
+`family.pl` contains the genealogy database consisting of child(C,P) and age(P,X) definitions. `rules.pl` contains the prlog rules I used. `script.pl` is a sanity-check script used to verify predicates by listing relationships that should return True and queries that return all possible solutions.
     
 # Learning Outcome
 

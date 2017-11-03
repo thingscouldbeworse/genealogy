@@ -44,7 +44,7 @@ kthlevel_child(X,Y,0):-
     child(Y,X).
 
 /* recursive definition */
-kth_levelchild(X,Y,K):-
+kthlevel_child(X,Y,K):-
     child(Z,X),
     I is K-1,
     kthchild(Z,Y,I).
@@ -63,7 +63,7 @@ sortedchildren(P,ByAge):-
 
 /* kth-child of P, pass K starting at 0 */
 /* so k=0 for first child, k=1 for second, etc */
-kthchild(P,K,KthChild):-
+kthchild(KthChild,P,K):-
     sortedchildren(P,ByAge),
     nth0(K,ByAge,KthChild).
 
